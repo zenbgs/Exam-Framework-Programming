@@ -1,0 +1,365 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>UTS Framework Programming - Zain Bagus</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'assets/vendors/mdi/css/materialdesignicons.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.base.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/jquery.toast.min.css' %}" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item profile">
+          <div class="profile-desc">
+            <div class="profile-pic">
+              <div class="count-indicator">
+                <img class="img-xs rounded-circle" src="{% static 'assets/images/faces/face15.jpg' %}" alt="" />
+                <span class="count bg-success"></span>
+              </div>
+              <div class="profile-name">
+                <h5 class="mb-0 font-weight-normal">Zain Bagus</h5>
+                <span>Gold Member</span>
+              </div>
+            </div>
+            <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+            <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
+              aria-labelledby="profile-dropdown">
+              <a href="#" class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-settings text-primary"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject ellipsis mb-1 text-small">
+                    Account settings
+                  </p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-onepassword text-info"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject ellipsis mb-1 text-small">
+                    Change Password
+                  </p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-calendar-today text-success"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject ellipsis mb-1 text-small">
+                    To-do list
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item nav-category">
+          <span class="nav-link">Navigation</span>
+        </li>
+
+        <li class="nav-item menu-items active">
+          <a class="nav-link" href="{% url 'tanaman' %}">
+            <span class="menu-icon">
+              <i class="mdi mdi-table-large"></i>
+            </span>
+            <span class="menu-title">Tanaman</span>
+          </a>
+        </li>
+
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="{% url 'jenis_tanaman' %}">
+            <span class="menu-icon">
+              <i class="mdi mdi-table-large"></i>
+            </span>
+            <span class="menu-title">Jenis Tanaman</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo-mini" href="#"><img src="{% static 'assets/images/logo-mini.svg' %}"
+              alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown">
+              <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                <div class="navbar-profile">
+                  <img class="img-xs rounded-circle" src="{% static 'assets/images/faces/face15.jpg' %}" alt="" />
+                  <p class="mb-0 d-none d-sm-block navbar-profile-name">
+                    Zain Bagus
+                  </p>
+                  <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="profileDropdown">
+                <h6 class="p-3 mb-0">Profile</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Settings</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-logout text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Log out</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 text-center">Advanced settings</p>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-format-line-spacing"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">Data Tanaman</h3>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Table</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Tanaman
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div class="row">
+
+            <div class="col-lg-12 grid-margin stretch-card">
+
+              <div class="card">
+                <div class="card-body">
+
+                  <div class="table-responsive">
+                    <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"
+                      class="btn btn-inverse-primary">Tambah Data</button>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Kode Tanaman</th>
+                          <th>Nama</th>
+                          <th>Stok</th>
+                          <th>Harga</th>
+                          <th>Link</th>
+                          <th>Jenis</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for Tanaman in tanaman %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{Tanaman.kodetanaman}}</td>
+                          <td>{{Tanaman.nama}}</td>
+                          <td>{{Tanaman.stok}}</td>
+                          <td>{{Tanaman.harga}}</td>
+                          <td>{{Tanaman.link}}</td>
+                          <td>{{Tanaman.jenis_id.nama}}</td>
+                          <td><button type="button" data-toggle="modal" data-target="#editModal{{forloop.counter}}" data-whatever="@mdo"
+                            class="btn btn-inverse-warning">Edit</button></td>
+                        </tr>
+
+                        <div class="modal fade" id="editModal{{forloop.counter}}" tabindex="-1" role="dialog"
+                      aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <form action="/uts/{{Tanaman.id}}" method="post">
+                        {% csrf_token %}
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+
+                              <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Kode Tanaman:</label>
+                                <input type="text" value="{{Tanaman.kodetanaman}}" name="kodetanaman" class="form-control" id="recipient-name">
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Nama:</label>
+                                <input type="text" class="form-control" value="{{Tanaman.nama}}" name="nama" id="message-text">
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Stok:</label>
+                                <input type="text" class="form-control" value="{{Tanaman.stok}}" name="stok" id="message-text">
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Harga:</label>
+                                <input type="text" class="form-control" value="{{Tanaman.harga}}" name="harga" id="message-text">
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Link:</label>
+                                <input type="text" class="form-control" value="{{Tanaman.link}}" name="link" id="message-text">
+                              </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+                          </div>
+                      </form>
+                    </div>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                      aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <form action="/uts/" method="post">
+                        {% csrf_token %}
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+
+                              <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Kode Tanaman:</label>
+                                <input type="text" name="kodetanaman" class="form-control" id="recipient-name">
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Nama:</label>
+                                <input type="text" class="form-control" name="nama" id="message-text">
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Stok:</label>
+                                <input type="text" class="form-control" name="stok" id="message-text">
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Harga:</label>
+                                <input type="text" class="form-control" name="harga" id="message-text">
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Link:</label>
+                                <input type="text" class="form-control" name="link" id="message-text">
+                              </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Zain Bagus
+            2022</span>
+          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+            UTS
+            <a href="#" target="_blank">Framework Programming</a> 20201219
+          </span>
+        </div>
+      </footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="{% static '' %}assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="{% static 'js/jquery.toast.min.js' %}"></script>
+  <script src="{% static 'assets/js/toastDemo.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{% static 'assets/js/off-canvas.js' %}"></script>
+  <script src="{% static 'assets/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'assets/js/misc.js' %}"></script>
+  <script src="{% static 'assets/js/settings.js' %}"></script>
+  <script src="{% static 'assets/js/todolist.js' %}"></script>
+
+  <script src="{% static 'js/alerts_v2.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <!-- End custom js for this page -->
+
+  {% for message in messages %}
+  {% if message %}
+  <script>
+    $.toast({
+      heading: 'Notifikasi',
+      text: 'berhasil tambah data...',
+      position: String('bottom-right'),
+      icon: 'info',
+      stack: false,
+      loaderBg: '#f96868'
+    })
+  </script>
+  {% endif %}
+  {% endfor %}
+</body>
+
+</html>
